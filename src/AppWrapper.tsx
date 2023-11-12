@@ -1,12 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import AppNavigation from '@navigation';
 
 const AppWrapper = () => {
-  return (
-    <View>
-      <Text>AppWrapper</Text>
-    </View>
-  )
-}
+  return <AppNavigation />;
+};
 
-export default AppWrapper
+export default AppWrapper;

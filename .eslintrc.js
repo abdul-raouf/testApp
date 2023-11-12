@@ -6,6 +6,12 @@ module.exports = {
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'prettier', '@react-native-community'],
   rules: {
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-console': 'error',
