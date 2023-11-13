@@ -1,2 +1,3 @@
 export {default as HomeScreen} from './HomeScreen';
-export {default as FashionCatalog} from './FashionCatalogScreen';
+export {default as FashionCatalogScreen} from './FashionCatalogScreen';
+export {default as MenuScreen} from './MenuScreen';

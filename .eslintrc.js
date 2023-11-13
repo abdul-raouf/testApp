@@ -18,6 +18,7 @@ module.exports = {
     'no-duplicate-imports': 'error',
     curly: 'off',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/no-unstable-nested-components': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
   },
   settings: {

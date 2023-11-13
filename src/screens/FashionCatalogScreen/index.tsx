@@ -1,13 +1,12 @@
-import SearchBar from '@components/SearchBar';
 import React from 'react';
-import {View, Text} from 'react-native';
+
+import {AppText, ScreenWrapper} from '@components';
 
 const FashionCatalog = () => {
   return (
-    <View>
-      <Text>Screen 2</Text>
-      <SearchBar />
-    </View>
+    <ScreenWrapper>
+      <AppText>Screen 2</AppText>
+    </ScreenWrapper>
   );
 };
 

@@ -12,6 +12,7 @@ module.exports = {
           '@icons': './src/icons/',
           '@navigation': './src/navigation/',
           '@screens': './src/screens/',
+          '@styles': './src/styles',
           '@services': './src/services/',
           '@svgIcons': './src/svgIcons/',
           '@types': './src/types/',
