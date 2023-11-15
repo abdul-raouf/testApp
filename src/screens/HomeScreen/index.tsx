@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {ScreenWrapper, SearchBar} from '@components';
+import {ScreenWrapper, SearchBar, Spacer} from '@components';
 
 import AppHeader from '@navigation/appHeader';
 import {Log} from '@utils';
+import {IMAGES} from '@assets/images';
 
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 type ItemData = {
   id: string;
@@ -22,7 +23,7 @@ const DATA: ItemData[] = [
     id: '1',
     name: 'Mens Plain T Shirt',
     price: '49.75',
-    image: 'Image',
+    image: IMAGES.dressMan,
     discount: '10%',
     oldPrice: '59.75',
   },
@@ -30,7 +31,7 @@ const DATA: ItemData[] = [
     id: '2',
     name: 'Mens Shirt',
     price: '49.75',
-    image: 'Image',
+    image: IMAGES.dressMan,
     discount: '10%',
     oldPrice: '59.75',
   },
@@ -38,24 +39,24 @@ const DATA: ItemData[] = [
     id: '2',
     name: 'Mens Shirt',
     price: '49.75',
-    image: 'Image',
-    discount: '10%',
+    image: IMAGES.dressMan,
+    discount: '-10%',
     oldPrice: '59.75',
   },
   {
     id: '2',
     name: 'Mens Shirt',
     price: '49.75',
-    image: 'Image',
-    discount: '10%',
+    image: IMAGES.dressMan,
+    discount: '-10%',
     oldPrice: '59.75',
   },
   {
     id: '2',
     name: 'Mens Shirt',
     price: '49.75',
-    image: 'Image',
-    discount: '10%',
+    image: IMAGES.dressMan,
+    discount: '-10%',
     oldPrice: '59.75',
   },
 ];
@@ -65,13 +66,21 @@ type ItemProps = {
 };
 
 const Item = ({item}: ItemProps) => (
-  <TouchableOpacity style={styles.list}>
+  <TouchableOpacity style={styles.itemContainer}>
     <View style={styles.itemContainer}>
-      {/* <Image source={{uri: image}} style={styles.productImage} /> */}
+      <Image source={item.image} style={styles.productImage} resizeMode="contain" />
       <Text style={styles.productName}>{item.name}</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={styles.QR}>QAR</Text>
+        <Text style={styles.productPrice}>{item.price}</Text>
+      </View>
       <Text style={styles.productPrice}>QAR {item.price}</Text>
-      <Text style={styles.productOldPrice}>QAR {item.oldPrice}</Text>
-      <Text style={styles.productDiscount}>{item.discount}</Text>
+      <View style={{flexDirection: 'row'}}>
+        <Text style={styles.productOldPrice}>{item.oldPrice}</Text>
+        <View style={{}}>
+          <Text style={styles.productDiscount}>{item.discount}</Text>
+        </View>
+      </View>
     </View>
   </TouchableOpacity>
 );
@@ -86,38 +95,45 @@ const HomeScreen = () => {
   return (
     <ScreenWrapper>
       <AppHeader title={<SearchBar onSearch={onSearch} />} />
-      <FlatList data={DATA} renderItem={renderItem} numColumns={2} />
+      <FlatList data={DATA} renderItem={renderItem} numColumns={2} contentContainerStyle={{rowGap: 5}} ItemSeparatorComponent={() => <Spacer top={10} />} />
     </ScreenWrapper>
   );
 };
 const styles = StyleSheet.create({
   list: {
-    margin: 10,
-    justifyContent: 'center',
+    // margin: 10,
+    // justifyContent: 'center'
   },
   itemContainer: {
-    flex: 1,
     flexDirection: 'column',
     alignContent: 'center',
-    margin: 10,
-    width: 180,
+    width: 200,
+    backgroundColor: 'grey',
   },
   productImage: {
     width: '100%',
-    height: 150,
-    // Add styles to match the design
+    height: 200,
   },
   productName: {
     color: 'black',
-    fontSize: 20,
+    fontSize: 14,
     fontFamily: 'Roboto',
     fontWeight: '300',
     fontStyle: 'normal',
     letterSpacing: -0.408,
   },
+  QR: {
+    color: 'black',
+    fontSize: 12,
+    fontFamily: 'Roboto',
+    paddingTop: 7,
+    paddingRight: 5,
+    fontStyle: 'normal',
+    letterSpacing: -0.408,
+  },
   productPrice: {
     color: 'black',
-    fontSize: 15,
+    fontSize: 18,
     fontFamily: 'Roboto',
 
     fontStyle: 'normal',
@@ -126,7 +142,7 @@ const styles = StyleSheet.create({
   productOldPrice: {
     textDecorationLine: 'line-through',
     color: 'black',
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: 'Roboto',
 
     fontStyle: 'normal',
@@ -134,9 +150,9 @@ const styles = StyleSheet.create({
   },
   productDiscount: {
     color: 'black',
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: 'Roboto',
-
+    marginLeft: 10,
     fontStyle: 'normal',
     letterSpacing: -0.408,
   },
