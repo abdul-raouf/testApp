@@ -1,10 +1,15 @@
 import React from 'react';
-import {IconButton} from 'react-native-paper';
 
 import {NavigationService} from '@services';
+import {TouchableOpacity} from 'react-native';
+import {AngleLeftIcon} from '@icons';
 
 const BackAction = () => {
-  return <IconButton icon="arrow-left" onPress={NavigationService.goBack} />;
+  return (
+    <TouchableOpacity onPress={NavigationService.goBack} activeOpacity={0.6}>
+      <AngleLeftIcon size={25} />
+    </TouchableOpacity>
+  );
 };
 
 export default BackAction;

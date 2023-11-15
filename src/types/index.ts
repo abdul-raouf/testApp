@@ -18,3 +18,12 @@ export type TBottomTabConfig = {
   component: () => JSX.Element;
   icon: {type: IconType; name: string};
 };
+
+export type TProduct = {
+  id: string;
+  title: string;
+  price: number;
+  image: string;
+  discount: number;
+  oldPrice: number;
+};

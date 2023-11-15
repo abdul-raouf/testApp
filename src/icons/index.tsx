@@ -55,6 +55,10 @@ export const HomeIcon = (props: TSpecificIcon) => <VectorIcon iconType="Entypo" 
 
 export const CloseIcon = (props: TSpecificIcon) => <VectorIcon iconType="AntDesign" name="close" {...props} />;
 
-export const AngleRightIcon = (props: TSpecificIcon) => <VectorIcon iconType="FontAwesome" name="angle-right" {...props} />;
+export const AngleRightIcon = (props: TSpecificIcon) => <VectorIcon iconType="MaterialCommunityIcons" name="arrow-right" {...props} />;
+export const AngleLeftIcon = (props: TSpecificIcon) => <VectorIcon iconType="MaterialCommunityIcons" name="arrow-left" {...props} />;
 
 export const AddCircleIcon = (props: TSpecificIcon) => <VectorIcon iconType="Ionicons" name="add-circle-outline" {...props} />;
+export const CartIcon = (props: TSpecificIcon) => <VectorIcon iconType="AntDesign" name="shoppingcart" {...props} />;
+export const FavouriteIcon = (props: TSpecificIcon) => <VectorIcon iconType="MaterialIcons" name="favorite-outline" {...props} />;
+export const FilterIcon = (props: TSpecificIcon) => <VectorIcon iconType="AntDesign" name="filter" {...props} />;

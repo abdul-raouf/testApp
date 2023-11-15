@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {When} from 'react-if';
 import {View} from 'react-native';
+import {Searchbar, SearchbarProps} from 'react-native-paper';
 
 import AppText, {IAppTextProps} from '@components/AppText';
 import {useDebounce} from '@utils';
-import {Searchbar, SearchbarProps} from 'react-native-paper';
+import {useAppTheme} from '@assets';
 
 interface ISearchBarProps extends Omit<SearchbarProps, 'onChangeText' | 'value' | 'theme'> {
   label?: string;
@@ -15,11 +16,11 @@ interface ISearchBarProps extends Omit<SearchbarProps, 'onChangeText' | 'value' 
 }
 
 const SearchBar = (props: ISearchBarProps) => {
-  const {label, labelProps, flex, onSearch, ...searchBarProps} = props;
+  const {label, labelProps, flex = 1, onSearch, ...searchBarProps} = props;
 
   const [search, setSearch] = useState('');
-
   const debounceSearch = useDebounce(onSearch);
+  const {colors} = useAppTheme();
 
   const onChangeText = (text: string) => {
     setSearch(text);
@@ -33,7 +34,7 @@ const SearchBar = (props: ISearchBarProps) => {
           {label}
         </AppText>
       </When>
-      <Searchbar mode="bar" placeholder="Search here" value={search} onChangeText={onChangeText} {...searchBarProps} />
+      <Searchbar mode="bar" placeholder="Search here" value={search} onChangeText={onChangeText} style={{backgroundColor: colors.background}} {...searchBarProps} />
     </View>
   );
 };

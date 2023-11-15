@@ -5,7 +5,6 @@ import {KeyboardAwareScrollView, KeyboardAwareScrollViewProps} from 'react-nativ
 
 import {makeStyles} from './styles';
 import {useAppTheme} from '@assets';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 interface IScreenWrapperProps {
   type?: 'scroll' | 'none' | 'keyboard';
@@ -24,25 +23,23 @@ const ScreenWrapper = (props: PropsWithChildren<IScreenWrapperProps>) => {
   const styles = useMemo(() => makeStyles(color), [color]);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Switch>
-        <Case condition={type === 'scroll'}>
-          <ScrollView style={styles.scrollView} {...scrollViewProps}>
-            {children}
-          </ScrollView>
-        </Case>
-        <Case condition={type === 'keyboard'}>
-          <KeyboardAwareScrollView style={styles.scrollView} {...keyboardAwareScrollViewProps}>
-            {children}
-          </KeyboardAwareScrollView>
-        </Case>
-        <Default>
-          <View style={styles.screenView} {...viewProps}>
-            {children}
-          </View>
-        </Default>
-      </Switch>
-    </SafeAreaView>
+    <Switch>
+      <Case condition={type === 'scroll'}>
+        <ScrollView style={styles.scrollView} {...scrollViewProps}>
+          {children}
+        </ScrollView>
+      </Case>
+      <Case condition={type === 'keyboard'}>
+        <KeyboardAwareScrollView style={styles.scrollView} {...keyboardAwareScrollViewProps}>
+          {children}
+        </KeyboardAwareScrollView>
+      </Case>
+      <Default>
+        <View style={styles.screenView} {...viewProps}>
+          {children}
+        </View>
+      </Default>
+    </Switch>
   );
 };
 

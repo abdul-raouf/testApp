@@ -12,7 +12,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    quotes: ['error', 'single'],
+    // quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'no-console': 'error',
     'no-duplicate-imports': 'error',

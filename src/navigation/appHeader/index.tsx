@@ -1,11 +1,11 @@
 import React from 'react';
 import {StatusBar, View} from 'react-native';
-import {Appbar} from 'react-native-paper';
 import {Else, If, Then} from 'react-if';
 
 import {styles} from './styles';
-import {BackAction} from '@components';
+import {AppText, BackAction, Spacer} from '@components';
 import {useAppTheme} from '@assets';
+import {IAppTextProps} from '@components/AppText';
 
 interface IAppHeaderProps {
   backAction?: boolean;
@@ -13,9 +13,10 @@ interface IAppHeaderProps {
   leftAccessory?: React.ReactNode;
   rightAccessory?: React.ReactNode;
   color?: AppTheme.TColors;
+  headerTitleProps?: IAppTextProps;
 }
 
-const AppHeader = ({title, backAction = true, leftAccessory, rightAccessory, color = 'primaryContainer'}: IAppHeaderProps) => {
+const AppHeader = ({title, backAction = true, leftAccessory, rightAccessory, color = 'primaryContainer', headerTitleProps}: IAppHeaderProps) => {
   const {colors} = useAppTheme();
 
   const colorValue = colors[color] as string;
@@ -25,13 +26,22 @@ const AppHeader = ({title, backAction = true, leftAccessory, rightAccessory, col
       <View style={[styles.container, {backgroundColor: colorValue}]}>
         <If condition={backAction}>
           <Then>
-            <BackAction />
+            <Spacer right={7}>
+              <BackAction />
+            </Spacer>
           </Then>
           <Else>{leftAccessory}</Else>
         </If>
 
-        <Appbar.Content title={title} />
-        {rightAccessory}
+        {typeof title === 'string' ? (
+          <AppText size={18} variant="bold" color="background" {...headerTitleProps}>
+            {title}
+          </AppText>
+        ) : (
+          title
+        )}
+
+        <Spacer left={7}>{rightAccessory}</Spacer>
       </View>
     </>
   );
