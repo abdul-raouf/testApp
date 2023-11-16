@@ -46,8 +46,9 @@ const ProductCard = (props: IProductCardProps) => {
                 <AppText size={12} color="background" variant="medium">{`-${discount}%`}</AppText>
               </View>
             </View>
-
-            <CartIcon size={20} />
+            <View>
+              <CartIcon size={26} style={{marginRight: 10}} />
+            </View>
           </View>
         </Spacer>
       </Spacer>

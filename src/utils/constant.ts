@@ -17,7 +17,7 @@ export const PRODUCT_DUMMY_DATA: TProduct[] = [
     image: 'https://thehouseofrare.com/cdn/shop/products/BLUERABBIT.jpg',
     oldPrice: 100,
     price: 50,
-    title: "Man's T SHirt",
+    title: "Men's T Shirt",
   },
   {
     discount: 10,
@@ -25,7 +25,7 @@ export const PRODUCT_DUMMY_DATA: TProduct[] = [
     image: 'https://thehouseofrare.com/cdn/shop/products/BLUERABBIT.jpg',
     oldPrice: 100,
     price: 50,
-    title: "Man's T SHirt",
+    title: "Men's T Shirt",
   },
   {
     discount: 10,
@@ -33,6 +33,6 @@ export const PRODUCT_DUMMY_DATA: TProduct[] = [
     image: 'https://thehouseofrare.com/cdn/shop/products/BLUERABBIT.jpg',
     oldPrice: 100,
     price: 50,
-    title: "Man's T SHirt",
+    title: "Men's T Shirt",
   },
 ]; // to be removed once api is linked,
